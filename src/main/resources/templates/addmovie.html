@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Enter Movie Information</h1>
+
+<form action="#" th:action="@{/api/movie}" th:object="${movie}" method="post">
+    <p>Title: <input type="text" th:field="*{title}"/></p>
+    <p>Duration: <input type="text" th:field="*{duration}"/></p>
+    <p>Rating: <input type="text" th:field="*{rating}"/></p>
+    <p>Time slot 1: <input type="text" th:field="*{timeSlot1}"/></p>
+    <p>Time slot 2: <input type="text" th:field="*{timeSlot2}"/></p>
+    <p>Total number of tickets: <input type="text" th:field="*{numberOfTickets}"/></p>
+    <input type="submit" value="Submit"/> <input type="reset" value="Reset"/>
+
+</form>
+
+<!--<form action="#" th:action="@{/movie}" th:object="${movie}" method="post">-->
+    <!--<p>Title: <input type="text" /></p>-->
+    <!--<p>Duration: <input type="text"/></p>-->
+    <!--<p>Rating: <input type="text" /></p>-->
+    <!--<p>Time slot 1: <input type="text" /></p>-->
+    <!--<p>Time slot 2: <input type="text"/></p>-->
+    <!--<p>Total number of tickets: <input type="text" /></p>-->
+    <!--<input type="submit" value="Submit"/> <input type="submit" value="Reset"/>-->
+
+<!--</form>-->
+</body>
+</html>
