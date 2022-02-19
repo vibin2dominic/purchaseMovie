@@ -32,10 +32,6 @@ public class MovieServiceImpl implements MovieService {
     public List<Movie> findAll() {
         List<Movie> movies = movieRepository.findAll();
 
-        for(Movie m : movies){
-            logger.info(m.getTitle());
-        }
-
         return movies;
     }
 }

@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 
 @Entity
-@Table(name="vibin")
+@Table(name="movies")
 @EqualsAndHashCode
 @Data
 public class Movie {

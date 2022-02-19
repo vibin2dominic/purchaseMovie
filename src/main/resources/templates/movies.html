@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Movies</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>All Movies </h1>
+
+<table>
+    <tr>
+        <th>Title   </th>
+        <th>Duration    </th>
+        <th>Rating      </th>
+        <th>Slot1      </th>
+        <th>Slot2      </th>
+        <th>Tickets Available</th>
+    </tr>
+
+    <tr th:each="movie : ${allMovies}">
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.duration}"></td>
+        <td th:text="${movie.rating}"></td>
+        <td th:text="${movie.timeSlot1}"></td>
+        <td th:text="${movie.timeSlot2}"></td>
+        <td th:text="${movie.numberOfTickets}"></td>
+
+    </tr>
+
+</table>
+
+<a href="/api/movie">Add another movie</a>
+
+
+<!--<p th:text="'id: ' + ${greeting.id}" />-->
+<!--<p th:text="'content: ' + ${greeting.content}" />-->
+<!--<a href="/greeting">Submit another message</a>-->
+</body>
+</html>

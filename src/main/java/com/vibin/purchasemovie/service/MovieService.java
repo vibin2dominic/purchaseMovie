@@ -7,9 +7,15 @@ import java.util.List;
 
 public interface MovieService {
 
+     //saves movie
      Movie addMovie(Movie movie);
 
      List<Movie> findAll();
+
+
+
+//     Movie getEmployeeById(long id);
+//     void deleteMovie(long id);
 
 
 }

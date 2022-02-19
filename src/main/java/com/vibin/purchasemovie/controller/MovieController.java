@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-// checking if this comment shows up
+
 
 @Controller
 @RequestMapping("/api")
@@ -36,7 +36,7 @@ public class MovieController {
         movieService.addMovie(movie);
 
 
-        return "confirmation";
+        return "redirect:/api/movie/show";
     }
 
     @GetMapping("/movie/show")
@@ -46,6 +46,6 @@ public class MovieController {
 
         model.addAttribute("allMovies", movies);
 
-        return "addmovie";
+        return "movies";
     }
 }
