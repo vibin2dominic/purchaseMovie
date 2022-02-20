@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieServiceImpl implements MovieService {
@@ -33,5 +34,19 @@ public class MovieServiceImpl implements MovieService {
         List<Movie> movies = movieRepository.findAll();
 
         return movies;
+    }
+
+    @Override
+    public Movie findById(int id) {
+        Optional<Movie> optional = movieRepository.findById(id);
+
+
+        Movie movie = null;
+        if(optional.isPresent()){
+            movie = optional.get();
+        } else{
+            throw new RuntimeException("Movie not found for id: " + id);
+        }
+        return movie;
     }
 }

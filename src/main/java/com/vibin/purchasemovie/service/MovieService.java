@@ -7,15 +7,17 @@ import java.util.List;
 
 public interface MovieService {
 
-     //saves movie
+     // saves movie
      Movie addMovie(Movie movie);
 
      List<Movie> findAll();
 
 
+     // method used to update
+     Movie findById(int id);
 
-//     Movie getEmployeeById(long id);
-//     void deleteMovie(long id);
+
+     // method to delete
 
 
 }

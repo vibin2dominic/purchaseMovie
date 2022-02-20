@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,10 +41,13 @@ class MovieServiceImplTest {
         Movie movie = new Movie("Test Movie", "20 min", "PG", "4pm", "5pm" , 2);
         Movie stubbedResponse = new Movie("Test Movie", "20 min", "PG", "4pm", "5pm" , 2);
 
-        when(movieService.addMovie(movie)).thenReturn(stubbedResponse);
+        //mock
+        when(movieRepository.save(movie)).thenReturn(stubbedResponse);
 
+        //test
         Movie returnedMovie= movieService.addMovie(movie);
 
+        //assertions
         assertEquals("Test Movie", returnedMovie.getTitle());
         assertTrue(movie.equals(returnedMovie));
 
@@ -60,7 +64,7 @@ class MovieServiceImplTest {
         movies.add(movie2);
 
         // mock
-        when(movieService.findAll()).thenReturn(movies);
+        when(movieRepository.findAll()).thenReturn(movies);
 
         // running the actual method
         List<Movie> returnedList = movieService.findAll();
@@ -71,6 +75,20 @@ class MovieServiceImplTest {
         String actualTitle= returnedList.get(0).getTitle();
 
         assertEquals(expectedTitle, actualTitle);
+    }
+
+    @Test
+    void findById(){
+
+        Movie movie = new Movie("Batman", "20 min", "PG", "4pm", "5pm" , 2);
+
+        //Mock
+        when(movieRepository.findById(1)).thenReturn(Optional.of(movie));
+
+        // running the actual method
+        Movie actualMovie = movieService.findById(1);
+
+        assertEquals(movie, actualMovie);
     }
 
 

@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<h2> UPDATE employee</h2>
+
+<form action="#" th:action="@{/api/movie}" th:object="${movie}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    <!---->
+    <!--<input type="text" th:field="*{duration}" class="form-control mb-4 col-4">-->
+    <!--<input type="text" th:field="*{rating}" class="form-control mb-4 col-4">-->
+    <!--<input type="text" th:field="*{timeSlot1}" class="form-control mb-4 col-4">-->
+    <!--<input type="text" th:field="*{timeSlot2}" class="form-control mb-4 col-4">-->
+    <!--<input type="text" th:field="*{numberOfTickets}" class="form-control mb-4 col-4">-->
+
+    <p>Title: <input type="text" th:field="*{title}" class="form-control mb-4 col-4"></p>
+    <p>Duration:  <input type="text" th:field="*{duration}" class="form-control mb-4 col-4"></p>
+    <p>Rating:  <input type="text" th:field="*{rating}" class="form-control mb-4 col-4"></p>
+    <p>Time slot 1: <input type="text" th:field="*{timeSlot1}" class="form-control mb-4 col-4"></p>
+    <p>Time slot 2: <input type="text" th:field="*{timeSlot2}" class="form-control mb-4 col-4"></p>
+    <p>Total number of tickets: <input type="text" th:field="*{numberOfTickets}" class="form-control mb-4 col-4"></p>
+
+    <input type="submit" value="Submit"/>
+
+
+</form>
+
 </body>
 </html>

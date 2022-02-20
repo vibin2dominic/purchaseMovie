@@ -5,10 +5,7 @@ import com.vibin.purchasemovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -47,5 +44,15 @@ public class MovieController {
         model.addAttribute("allMovies", movies);
 
         return "movies";
+    }
+
+    @GetMapping("/movie/update/{id}")
+    public String update(@PathVariable (value = "id") int id, Model model){
+
+        Movie movie = movieService.findById(id); // get the movie from movie service
+
+        model.addAttribute("movie", movie);
+
+        return "updatemovie";
     }
 }
