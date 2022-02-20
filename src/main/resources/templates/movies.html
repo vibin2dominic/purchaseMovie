@@ -24,7 +24,11 @@
         <td th:text="${movie.timeSlot1}"></td>
         <td th:text="${movie.timeSlot2}"></td>
         <td th:text="${movie.numberOfTickets}"></td>
-        <td><a th:href="@{/api/movie/update/{id}(id=${movie.id})}">Update</a></td>
+        <td>
+            <a th:href="@{/api/movie/update/{id}(id=${movie.id})}">Update</a>
+            <a th:href="@{/api/movie/delete/{id}(id=${movie.id})}">Delete</a>
+
+        </td>
 
     </tr>
 

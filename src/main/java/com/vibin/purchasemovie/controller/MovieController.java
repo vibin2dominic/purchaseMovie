@@ -55,4 +55,12 @@ public class MovieController {
 
         return "updatemovie";
     }
+
+    @GetMapping("/movie/delete/{id}")
+    public String deleteMovie(@PathVariable (value="id") int id){
+
+        movieService.deleteById(id);
+
+        return "redirect:/api/movie/show";
+    }
 }

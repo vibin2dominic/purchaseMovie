@@ -49,4 +49,10 @@ public class MovieServiceImpl implements MovieService {
         }
         return movie;
     }
+
+    @Override
+    public void deleteById(int id) {
+
+        movieRepository.deleteById(id);
+    }
 }

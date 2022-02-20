@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -104,8 +105,19 @@ class MovieControllerTest {
         this.mockMvc.perform(get("/api/movie/update/10"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("movie"));
+    }
 
+    @Test
+    void deleteMovie() throws Exception{
+        Movie movie = new Movie("Test Movie", "20 min", "PG", "4pm", "5pm" , 2);
 
+        movie.setId(1);
+
+        doNothing().when(movieService).deleteById(1);
+
+        this.mockMvc.perform(get("/api/movie/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/api/movie/show"));
 
     }
 

@@ -18,6 +18,6 @@ public interface MovieService {
 
 
      // method to delete
-
+     void deleteById(int id);
 
 }

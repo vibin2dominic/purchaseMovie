@@ -15,7 +15,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class MovieServiceImplTest {
@@ -23,6 +23,7 @@ class MovieServiceImplTest {
     @Autowired
     MovieService movieService;
 
+    // mock
     @MockBean
     private MovieRepository movieRepository;
 
@@ -91,5 +92,17 @@ class MovieServiceImplTest {
         assertEquals(movie, actualMovie);
     }
 
+    @Test
+    void deleteById(){
+        Movie movie = new Movie("Batman", "20 min", "PG", "4pm", "5pm" , 2);
+        movie.setId(1);
 
+        // mock
+        doNothing().when(movieRepository).deleteById(1);
+
+        movieService.deleteById(1);
+
+        verify(movieRepository, times(1)).deleteById(1);
+
+    }
 }
