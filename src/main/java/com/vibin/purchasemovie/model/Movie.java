@@ -2,6 +2,7 @@ package com.vibin.purchasemovie.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name="movies")
 @EqualsAndHashCode
 @Data
+@ToString
 public class Movie {
 
     @Column(name = "title")
@@ -45,62 +47,5 @@ public class Movie {
         this.timeSlot2 = timeSlot2;
         this.numberOfTickets = numberOfTickets;
     }
-/*
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
-
-    public String getTimeSlot1() {
-        return timeSlot1;
-    }
-
-    public void setTimeSlot1(String timeSlot1) {
-        this.timeSlot1 = timeSlot1;
-    }
-
-    public String getTimeSlot2() {
-        return timeSlot2;
-    }
-
-    public void setTimeSlot2(String timeSlot2) {
-        this.timeSlot2 = timeSlot2;
-    }
-
-    public int getNumberOfTickets() {
-        return numberOfTickets;
-    }
-
-    public void setNumberOfTickets(int numberOfTickets) {
-        this.numberOfTickets = numberOfTickets;
-    }
-
-*/
 }

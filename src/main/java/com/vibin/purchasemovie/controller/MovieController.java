@@ -24,17 +24,28 @@ public class MovieController {
         return "addmovie";
     }
 
-
-
     @PostMapping("/movie")
     public String  confirmation(@ModelAttribute Movie movie, Model theModel){
 
         theModel.addAttribute("movie", movie);
-        movieService.addMovie(movie);
 
+        movieService.addMovie(movie);
 
         return "redirect:/api/movie/show";
     }
+
+
+    @PostMapping("/movie/edit")
+    public String showEditMovieForm(@ModelAttribute Movie movie, Model model){
+
+        model.addAttribute("movie", movie);
+
+        movieService.update(movie);
+
+        return "redirect:/api/movie/show";
+    }
+
+
 
     @GetMapping("/movie/show")
     public String findAll(Model model){

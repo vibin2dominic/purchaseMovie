@@ -2,8 +2,6 @@ package com.vibin.purchasemovie.service;
 
 import com.vibin.purchasemovie.model.Movie;
 import com.vibin.purchasemovie.repository.MovieRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,15 +25,6 @@ class MovieServiceImplTest {
     @MockBean
     private MovieRepository movieRepository;
 
-
-
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
 
     @Test
     void addMovie() {
@@ -84,10 +73,10 @@ class MovieServiceImplTest {
         Movie movie = new Movie("Batman", "20 min", "PG", "4pm", "5pm" , 2);
 
         //Mock
-        when(movieRepository.findById(1)).thenReturn(Optional.of(movie));
+        when(movieRepository.findById(10)).thenReturn(Optional.of(movie));
 
         // running the actual method
-        Movie actualMovie = movieService.findById(1);
+        Movie actualMovie = movieService.findById(10);
 
         assertEquals(movie, actualMovie);
     }
